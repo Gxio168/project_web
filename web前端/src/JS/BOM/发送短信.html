@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    手机号码 : <input type="number"> <button>发送</button>
+    <script >
+        var btn = document.querySelector('button');
+        var input = document.querySelector('input');
+        var time = 3;
+        btn.addEventListener('click',function (){
+           if(input.value === ''){
+               alert('您没有输入正确的手机号');
+               return ;
+           }else {
+               btn.disabled = true;
+               var timer = setInterval(function (){
+                   if(time === 0) {
+                       clearInterval(timer);
+                       btn.disabled = false;
+                       btn.innerHTML = '发送';
+                   }else {
+                       btn.innerHTML = '还剩下' + time + '秒';
+                       time--;
+                   }
+               },1000);
+           }
+        });
+    </script>
+</body>
+</html>

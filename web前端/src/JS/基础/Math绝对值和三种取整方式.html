@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 取常数pi
+        console.log(Math.PI);
+        // 取数字的相反数
+        console.log(Math.abs(-989));
+        console.log(Math.abs('-45'));
+        // 向下取数字的整数
+        console.log(Math.floor(6.5));
+        // 向上取数字的整数
+        console.log(Math.ceil(9.1));
+        // 四舍五入取数字的整数
+        console.log(Math.round(6.4));
+        // 取任意范围内的两个数的随机整数
+        function getRandom(min,max) {
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+        var a = getRandom(5,10);
+        console.log(a);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

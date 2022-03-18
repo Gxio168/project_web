@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .sert {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td,
+        th {
+            border: 1px solid #333;
+        }
+
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="sert">
+        姓名：<input type="text">
+        科目：<input type="text">
+        成绩：<input type="text">
+        <button>添加</button>
+    </div>
+  <table cellspacing="0">
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+    <script >
+        var sert = document.querySelector('.sert');
+        var btn = document.querySelector('button');
+        var tbody = document.querySelector('tbody');
+        btn.onclick = function () {
+            var data = [];
+            for (var i = 0; i < sert.children.length-1; i++) {
+                if (sert.children[i].value === '') {
+                    alert('数据未填写完整!')
+                    return 0;
+                }
+                    data[i] = sert.children[i].value;
+                    sert.children[i].value = '';
+            }
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (var i = 0; i < data.length; i++) {
+                var td = document.createElement('td');
+                td.innerHTML = data[i];
+                tr.appendChild(td);
+            }
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除 </a>';
+            tr.appendChild(td);
+            var as = document.querySelectorAll('a');
+            for (var i = 0; i < as.length; i++) {
+                as[i].onclick = function() {
+                    tbody.removeChild(this.parentNode.parentNode)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../fonts/style.css">
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        .box input {
+            border: 0;
+            outline: none;
+            width: 370px;
+            height: 30px;
+        }
+        .box label i {
+            position: absolute;
+            right: 5px;
+            top: 10px;
+            font-family: icomoon;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <label for="">
+            <i id="eye"></i>
+        </label>
+        <input type="password" name="" id="text">
+    </div>
+    <script >
+        var eye = document.getElementById('eye');
+        var text = document.getElementById('text');
+        var flag = 0;
+        eye.onclick = function () {
+            if(flag === 0) {
+                eye.innerHTML = '';
+                text.type = 'text';
+                flag = 1;
+            }
+            else {
+                eye.innerHTML = '';
+                text.type = 'password';
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+</html>

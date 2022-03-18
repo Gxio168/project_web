@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <!-- 文件选择框 -->
+    <input type="file" id="file1">
+
+    <!-- 上传文件按钮 -->
+    <button id="btnUpload">上传文件</button>
+
+    <!-- 进度条 -->
+    <div class="progress" style="width:500px; margin: 15px 10px;">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" id = "jdt" style="width: 0%">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+      
+    <br>
+    <!-- img标签，用于显示上传成功后的图片 -->
+    <img src="" alt="" id="img" width="800"/>
+    <script>
+        // 获取到文件上传按钮
+        var btnUpload = document.querySelector('#btnUpload')
+        // 为按钮绑定单击点击事件
+        btnUpload.addEventListener('click',function(){
+            var files = document.querySelector('#file1').files
+            if(files.length <= 0) {
+                return alert('请选择要上传的图片!')
+            }
+            var fd = new FormData()
+
+            // 将用户选择的图片添加到formdata中
+            fd.append('avatar',files[0])
+
+            var xhr = new XMLHttpRequest()
+            
+            // 监听文件上传的进度
+            xhr.upload.onprogress = function(e){
+                if(e.lengthComputable){
+
+                    // 计算出上传进度
+                    var procentComplete = Math.ceil((e.loaded / e.total)*100) 
+
+                   $('#jdt').attr('style','width:' + procentComplete + '%').html(procentComplete + '%')
+
+                }
+            }
+
+            xhr.upload.onload = function(){
+                $('#jdt').removeClass().addClass('progress-bar progress-bar-success')
+            }
+            xhr.open('POST','http://www.liulongbin.top:3006/api/upload/avatar')
+            xhr.send(fd)
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4 && xhr.status === 200)
+                var data = JSON.parse(xhr.responseText)
+                console.log(data);
+                if(data.status === 200){
+                    // 图片上传成功
+                    document.querySelector('#img').src = 'http://www.liulongbin.top:3006' + data.url
+                }else {
+                    // 图片上传失败
+                    console.log('上传文件失败' + data.message);
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            overflow: hidden;
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+            margin: 100px auto;
+        }
+        div img {
+            width: 100%;
+            height: 100%;
+            transform-origin: left bottom;
+            transform: rotate(90deg);
+            transition: all 1s;
+        }
+        div:hover img {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+  <div>
+      <img src="福.png" alt="">
+  </div>
+</body>
+</html>

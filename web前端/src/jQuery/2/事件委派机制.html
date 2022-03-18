@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            cursor: pointer;
+        }
+    </style>
+    <script src="../jQuery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>我是你爹</li>
+        <li>我是你爹</li>
+        <li>我是你爹</li>
+        <li>我是你爹</li>
+    </ul>
+    <p>我是屁</p>
+    <script>
+        $(function(){
+            $("ul").on("click","li",function(){
+                alert("我是你爹!");
+            })
+            // one只会触发一次
+            $("p").one("click",function(){
+                alert("你他妈才是屁😅");
+            })
+        })
+    </script>
+</body>
+</html>

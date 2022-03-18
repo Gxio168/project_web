@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            padding: 100px;
+        }
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+        }
+        ul {
+            margin-top: 50px;
+        }
+        ul li {
+            width: 300px;
+            padding: 5px;
+            background-color: rgb(245, 209, 243);
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+        ul li a {
+            text-decoration: none;
+            color: deepskyblue;
+            float: right;
+        }
+        ul li a:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script >
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        btn.onclick = function () {
+            if(text.value === '')
+                alert('您没有输入内容!')
+            else {
+                var li = document.createElement('li');
+                li.innerHTML = text.value+' <a href="javascript:;">删除</a>';
+                ul.appendChild(li);
+                text.value = '';
+                var del = document.querySelectorAll('a');
+                for (var i = 0; i < del.length; i++) {
+                    del[i].onclick = function () {
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div></div>
+    <script >
+        var arrs = location.search.substr(1).split('=');
+        var div = document.querySelector('div');
+        div.innerHTML = arrs[1]+'欢迎您!'
+    </script>
+</body>
+</html>

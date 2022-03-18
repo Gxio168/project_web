@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input表单元素</title>
+</head>
+<body>
+  <form action="xxx.php" method="get">
+<!--      text文本框-->
+<!--      value 主要给后台人员看的-->
+<!--      name是表单元素名字，这里性别单选按钮必须有相同的名字name，才能实现多选一-->
+<!--      maxlength 用户可以输入的最大长度-->
+     用户名: <input type="text" name="username" value="请输入用户名" maxlength="6"> <br>
+<!--      password 密码框-->
+      密码:   <input type="password" name="pwd"> <br>
+<!--      单选按钮和复选框可以设置checked属性，当页面打开的时候就可以默认选中这个按钮-->
+<!--      radio 单选按钮 可以实现多选一-->
+      性别: 男 <input type="radio" name="sex" checked="checked" value="男 "> 女 <input type="radio" name="sex" value="女"> <br>
+<!--      checkbox 多选框 可以实现多选效果-->
+      爱好: 吃饭 <input type="checkbox" name="hbby" value="吃饭"> 睡觉 <input type="checkbox" name="hobby" value="睡觉"> 打豆豆 <input type="checkbox" name="hobby" value="打豆豆">
+      <br>
+<!--      点击了提交按钮，可以把表单域中的form里面的表单元素里的值提交给后台服务器-->
+      <input type="submit" value="免费注册"> <br>
+<!--      重置按钮可以还原表单元素初始的默认状态-->
+      <input type="reset" value="初始化"> <br>
+<!--      button普通按钮 后期结合js 搭配使用-->
+      <input type="button" value="获取短信验证码"> <br>
+<!--      文件域 使用场景 上传文件使用-->
+      上传头像:<input type="file">
+  </form>
+</body>
+</html>

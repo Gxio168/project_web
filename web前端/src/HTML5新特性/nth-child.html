@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*选出所有偶数的孩子*/
+        ul li:nth-child(even) {
+            background-color: #ccc;
+            list-style: none;
+        }
+        /*选出所有奇数的孩子*/
+        ul li:nth-child(odd) {
+            background-color: deepskyblue;
+            list-style: none;
+        }
+        ol li:nth-child(2n) {
+            background-color: red;
+        }
+        ol li:nth-child(2n+1) {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+  <ul>
+      <li>我是第1个孩子</li>
+      <li>我是第2个孩子</li>
+      <li>我是第3个孩子</li>
+      <li>我是第4个孩子</li>
+      <li>我是第5个孩子</li>
+      <li>我是第6个孩子</li>
+      <li>我是第7个孩子</li>
+      <li>我是第8个孩子</li>
+  </ul>
+  <ol>
+      <li>我是第1个孩子</li>
+      <li>我是第2个孩子</li>
+      <li>我是第3个孩子</li>
+      <li>我是第4个孩子</li>
+      <li>我是第5个孩子</li>
+      <li>我是第6个孩子</li>
+      <li>我是第7个孩子</li>
+      <li>我是第8个孩子</li>
+  </ol>
+</body>
+</html>

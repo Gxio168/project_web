@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .body {
+            position: relative;
+            width: 1200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            padding-top: 100px;
+        }
+        .body .box {
+            position: relative;
+            float: left;
+            width: 200px;
+            height: 50px;
+            margin-right: 50px;
+            line-height: 50px;
+            transform-style: preserve-3d;
+            transition: all .3s;
+        }
+        .body .box:hover {
+            transform: rotateX(90deg) ;
+        }
+        .body .box:last-child {
+            margin-right: 0;
+        }
+        .front,
+        .bottom {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .front {
+            background-color: skyblue;
+            transform: translateZ(25px)
+            /*z-index: 1;*/
+        }
+        .bottom {
+            background-color: purple;
+            transform: translateY(25px)  rotateX(-90deg) ;
+        }
+    </style>
+</head>
+<body>
+  <div class="body">
+      <div class="box">
+          <div class="front">世界第一大帅哥</div>
+          <div class="bottom">尹君豪</div>
+      </div>
+      <div class="box">
+          <div class="front">世界第一大帅哥</div>
+          <div class="bottom">尹君豪</div>
+      </div>
+      <div class="box">
+          <div class="front">世界第一大帅哥</div>
+          <div class="bottom">尹君豪</div>
+      </div>
+      <div class="box">
+          <div class="front">世界第一大帅哥</div>
+          <div class="bottom">尹君豪</div>
+      </div>
+      <div class="box">
+          <div class="front">世界第一大帅哥</div>
+          <div class="bottom">尹君豪</div>
+      </div>
+  </div>
+</body>
+</html>

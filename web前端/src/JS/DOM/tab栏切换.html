@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 1200px;
+            height: 60px;
+            margin: 100px auto 0;
+            background-color: #f5f8f5;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        .box1 {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .list_tb ul li {
+            display: block;
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .list_bd ul li {
+            visibility: hidden;
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 120px;
+            background-color: pink;
+        }
+        .current {
+            background-color: #d5281e;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="list_tb">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价(1000+)</li>
+                <li>手机社区</li>
+             </ul>
+        </div>
+    </div>
+    <div class="box1">
+        <div class="list_bd">
+             <ul>
+                 <li style="visibility: visible">我是尹君豪</li>
+                 <li>13岁小男孩，身穿黑色外套</li>
+                 <li>暂无售后保障，听天由命</li>
+                 <li>垃圾，退货！骗子</li>
+                 <li>无</li>
+             </ul>
+        </div>
+    </div>
+    <script >
+        var list_tb = document.querySelector('.list_tb').querySelectorAll('li');
+        var list_bd = document.querySelector('.list_bd').querySelectorAll('li');
+        for (let i = 0; i < list_tb.length; i++) {
+            list_tb[i].onclick = function () {
+                for (let j = 0; j < list_tb.length; j++) {
+                    list_tb[j].className = '';
+                }
+                this.className = 'current';
+                for (let j = 0; j < list_bd.length; j++) {
+                    list_bd[j].style.visibility = 'hidden';
+                }
+                list_bd[i].style.visibility = 'visible';
+            }
+        }
+    </script>
+</body>
+</html>
